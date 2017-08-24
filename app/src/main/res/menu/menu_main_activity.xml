@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_delete_all_entries"
+        android:title="@string/action_delete_all_entries"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_insert_dummy_data_1"
+        android:title="@string/action_insert_dummy_data_1"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_insert_dummy_data_2"
+        android:title="@string/action_insert_dummy_data_2"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_insert_dummy_data_3"
+        android:title="@string/action_insert_dummy_data_3"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_insert_dummy_data_4"
+        android:title="@string/action_insert_dummy_data_4"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_insert_dummy_data_5"
+        android:title="@string/action_insert_dummy_data_5"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.inventory_app.EditorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/imageview_dotted_background"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Editor_Activity_TextView"
+                android:text="@string/textViewName" />
+
+            <EditText
+                android:id="@+id/editTextName"
+                style="@style/Editor_Activity_EditText"
+                android:inputType="text"
+                android:imeOptions="actionNext" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Editor_Activity_TextView"
+                android:text="@string/textViewPrice" />
+
+            <EditText
+                android:id="@+id/editTextPrice"
+                style="@style/Editor_Activity_EditText"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Editor_Activity_TextView"
+                android:layout_gravity="center_vertical"
+                android:text="@string/textViewQuantity" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+                <Button
+                    android:id="@+id/buttonDecrement"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/buttonDecrement"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+                <EditText
+                    android:id="@+id/editTextQuantity"
+                    android:layout_width="80dp"
+                    android:maxLength="6"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/buttonIncrement"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttonIncrement"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Editor_Activity_TextView"
+                android:text="@string/textViewSupplierName" />
+
+            <EditText
+                android:id="@+id/editTextSupplierName"
+                style="@style/Editor_Activity_EditText"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Editor_Activity_TextView"
+                android:text="@string/textViewSupplierPhone" />
+
+            <EditText
+                android:id="@+id/editTextSupplierPhone"
+                style="@style/Editor_Activity_EditText"
+                android:inputType="phone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                style="@style/Editor_Activity_TextView"
+                android:text="@string/textViewSupplierEmail" />
+
+            <EditText
+                android:id="@+id/editTextSupplierEmail"
+                style="@style/Editor_Activity_EditText"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <View
+                android:id="@+id/viewAnchorInCenter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true" />
+
+            <Button
+                android:id="@+id/buttonOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/viewAnchorInCenter"
+                android:background="@drawable/button_order_background"
+                android:foreground="?android:selectableItemBackground"
+                android:text="@string/buttonOrder"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/viewAnchorInCenter"
+                android:background="@drawable/button_delete_background"
+                android:foreground="?android:selectableItemBackground"
+                android:text="@string/buttonDelete"
+                android:textAllCaps="false" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

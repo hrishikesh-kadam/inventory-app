@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Inventory App</string>
+
+    <string name="editor_activity_title_new_item">Add New Item</string>
+    <string name="editor_activity_title_edit_item">Edit Item</string>
+
+    <string name="textViewPriceTag">Price: </string>
+    <string name="textViewQuantityTag">Quantity: </string>
+
+    <string name="pick_image_intent_text">Choose Image from</string>
+
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+
+    <string name="delete_item_dialog_msg">Are you sure you want to delete the item?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="button_sale">Sale</string>
+
+    <string name="name_compulsory">Product Name is required</string>
+
+    <string name="action_delete_all_entries">Delete All Entries</string>
+    <string name="action_insert_dummy_data_1">Insert Dummy Data 1</string>
+    <string name="action_insert_dummy_data_2">Insert Dummy Data 2</string>
+    <string name="action_insert_dummy_data_3">Insert Dummy Data 3</string>
+    <string name="action_insert_dummy_data_4">Insert Dummy Data 4</string>
+    <string name="action_insert_dummy_data_5">Insert Dummy Data 5</string>
+
+    <string name="action_save">Save</string>
+
+    <string name="update_quantity_failed">Updating quantity failed</string>
+    <string name="update_quantity_successful">Quantity updated</string>
+
+    <string name="update_item_failed">Updating item failed</string>
+    <string name="update_item_successful">Item saved</string>
+    <string name="update_item_updated">Item updated</string>
+
+    <string name="delete_item_failed">Deleting item failed</string>
+    <string name="delete_item_successful">Item deleted</string>
+
+    <string name="order_for">Order for</string>
+    <string name="order_by">Order by</string>
+
+    <string name="empty_view_text">No items found\n\nStart adding items in your inventory by clicking on add (+) button</string>
+    
+    <string name="textViewName">Product Name</string>
+    <string name="textViewPrice">Price (₹)</string>
+    <string name="textViewQuantity">Quantity</string>
+    <string name="buttonDecrement">-</string>
+    <string name="buttonIncrement">+</string>
+    <string name="editTextQuantityDefault">0</string>
+    <string name="textViewSupplierName">Supplier</string>
+    <string name="textViewSupplierPhone">Supplier Phone</string>
+    <string name="textViewSupplierEmail">Supplier Email</string>
+    <string name="buttonOrder">Order</string>
+    <string name="buttonDelete">Delete</string>
+
+    <string name="editor_insert_item_successful">Item saved</string>
+    <string name="editor_insert_item_failed">Item couldn\'t be saved</string>
+
+</resources>

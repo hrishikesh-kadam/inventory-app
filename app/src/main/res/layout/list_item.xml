@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EEEEEE"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/gray_border"
+        android:elevation="2dp"
+        android:foreground="?android:selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            tools:src="@drawable/image_gatorade" />
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/imageView"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000"
+            tools:text="Gatorade Sports Drink (Blue Bolt)" />
+
+        <TextView
+            android:id="@+id/textViewPriceTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewName"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:text="@string/textViewPriceTag" />
+
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/textViewPriceTag"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#bb0000"
+            tools:text="₹ 45" />
+
+        <TextView
+            android:id="@+id/textViewQuantityTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewPriceTag"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:text="@string/textViewQuantityTag" />
+
+        <TextView
+            android:id="@+id/textViewQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewPriceTag"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/textViewQuantityTag"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#008800"
+            tools:text="100" />
+
+        <Button
+            android:id="@+id/buttonSale"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/textViewQuantityTag"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/imageView"
+            android:background="@drawable/button_sale_background"
+            android:foreground="?android:selectableItemBackground"
+            android:text="@string/button_sale"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

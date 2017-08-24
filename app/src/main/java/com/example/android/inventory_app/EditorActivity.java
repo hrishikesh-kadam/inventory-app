@@ -21,10 +21,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.inventory_app.data.InventoryContract.InventoryEntry;
 import com.example.android.inventory_app.data.InventoryDbHelper;
+
+import java.text.NumberFormat;
 
 public class EditorActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -94,6 +97,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private void init(Bundle savedInstanceState) {
 
         Log.v(LOG_TAG, " -> init");
+
+        TextView textViewPrice = (TextView) findViewById(R.id.textViewPrice);
+        textViewPrice.setText(textViewPrice.getText() + " (" + MainActivity.currencySymbol + ")");
+
         editTextQuantity = (EditText) findViewById(R.id.editTextQuantity);
 
         buttonDecrement = (Button) findViewById(R.id.buttonDecrement);
@@ -231,16 +238,15 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
                 if( storedSupplierPhone.isEmpty() && storedSupplierEmail.isEmpty() )
                     return;
-                else if( !storedSupplierPhone.isEmpty() )
-                    startActivity(phoneIntent);
-                else if( !storedSupplierEmail.isEmpty() )
-                    startActivity(emailIntent);
-                else {
+                else if( !storedSupplierPhone.isEmpty() && !storedSupplierEmail.isEmpty() ) {
                     Intent chooserIntent = Intent.createChooser(phoneIntent, getString(R.string.order_by));
                     chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{emailIntent});
                     startActivity(chooserIntent);
                 }
-
+                else if( !storedSupplierPhone.isEmpty() )
+                    startActivity(phoneIntent);
+                else if( !storedSupplierEmail.isEmpty() )
+                    startActivity(emailIntent);
             }
         });
     }
@@ -529,8 +535,24 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             price = cursor.getDouble(COLUMN_PRICE);
             if( price == -1.0 )
                 editTextPrice.setText("");
-            else
-                editTextPrice.setText(String.valueOf(price));
+            else {
+                //editTextPrice.setText(String.valueOf(price));
+                NumberFormat formatter = NumberFormat.getNumberInstance();
+                formatter.setMinimumFractionDigits(0);
+                formatter.setMaximumFractionDigits(2);
+                formatter.setGroupingUsed(false);
+                String priceString = formatter.format(price);
+
+                if( priceString.contains(".")) {
+                    String[] priceStringArray = priceString.split("\\.");
+                    String decimalString = priceStringArray[1];
+                    if( decimalString.length() == 1 )
+                        decimalString = decimalString + "0";
+                    priceString = priceStringArray[0] + "." + decimalString;
+                }
+
+                editTextPrice.setText(priceString);
+            }
 
             quantity = cursor.getInt(COLUMN_QUANTITY);
             if( quantity == -1 )

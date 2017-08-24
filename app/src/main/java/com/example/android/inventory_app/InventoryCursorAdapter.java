@@ -4,6 +4,7 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.inventory_app.data.InventoryContract.InventoryEntry;
-import com.example.android.inventory_app.data.InventoryDbHelper;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class InventoryCursorAdapter extends CursorAdapter {
 
@@ -62,15 +65,29 @@ public class InventoryCursorAdapter extends CursorAdapter {
         if( byteArrayImage == null )
             viewHolder.imageView.setImageResource(R.drawable.image_no_image);
         else
-            viewHolder.imageView.setImageBitmap(InventoryDbHelper.getImage(byteArrayImage));
+            viewHolder.imageView.setImageBitmap(BitmapFactory.decodeByteArray(byteArrayImage, 0, byteArrayImage.length));
 
         viewHolder.textViewName.setText(cursor.getString(COLUMN_NAME));
 
         double price = cursor.getDouble(COLUMN_PRICE);
         if( price == -1.0 )
             viewHolder.textViewPrice.setText("NA");
-        else
-            viewHolder.textViewPrice.setText("₹ " + price);
+        else {
+            NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("en", MainActivity.countryCodeValue));
+            formatter.setMinimumFractionDigits(0);
+            formatter.setMaximumFractionDigits(2);
+            String priceString = formatter.format(price);
+
+            if( priceString.contains(".")) {
+                String[] priceStringArray = priceString.split("\\.");
+                String decimalString = priceStringArray[1];
+                if( decimalString.length() == 1 )
+                    decimalString = decimalString + "0";
+                priceString = priceStringArray[0] + "." + decimalString;
+            }
+
+            viewHolder.textViewPrice.setText(priceString);
+        }
 
         int quantity = cursor.getInt(COLUMN_QUANTITY);
         if( quantity == -1 )

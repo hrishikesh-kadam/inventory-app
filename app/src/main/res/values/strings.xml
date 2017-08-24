@@ -46,7 +46,7 @@
     <string name="empty_view_text">No items found\n\nStart adding items in your inventory by clicking on add (+) button</string>
     
     <string name="textViewName">Product Name</string>
-    <string name="textViewPrice">Price (₹)</string>
+    <string name="textViewPrice">Price</string>
     <string name="textViewQuantity">Quantity</string>
     <string name="buttonDecrement">-</string>
     <string name="buttonIncrement">+</string>

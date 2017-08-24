@@ -3,6 +3,7 @@ package com.example.android.inventory_app;
 import android.app.LoaderManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -11,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,12 +24,18 @@ import android.widget.Toast;
 import com.example.android.inventory_app.data.DummyDataUtility;
 import com.example.android.inventory_app.data.InventoryContract.InventoryEntry;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
     private static final String LOG_TAG = "MainActivity";
     private static final int INVENTORY_LOADER = 1;
     private ListView listView;
     private InventoryCursorAdapter cursorAdapter;
+
+    public static String countryCodeValue;
+    public static String currencySymbol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
         init(savedInstanceState);
+        initCountry();
     }
 
     private void init(Bundle savedInstanceState) {
@@ -69,6 +78,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         });
 
         getLoaderManager().initLoader(INVENTORY_LOADER, null, this);
+    }
+
+    private void initCountry() {
+
+        TelephonyManager tm = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+        MainActivity.countryCodeValue = tm.getNetworkCountryIso();
+
+        Locale locale = new Locale("en", MainActivity.countryCodeValue);
+        MainActivity.currencySymbol = NumberFormat.getCurrencyInstance(locale).getCurrency().getSymbol();
     }
 
     @Override

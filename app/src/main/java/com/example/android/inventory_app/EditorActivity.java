@@ -273,19 +273,49 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         Log.v(LOG_TAG, " -> onSaveInstanceState");
+
         if( byteArrayImage != null )
-            outState.putByteArray("image", byteArrayImage);
+            outState.putByteArray(InventoryEntry.COLUMN_IMAGE, byteArrayImage);
+
+        outState.putBoolean("itemHasChanged", itemHasChanged);
+        outState.putString(InventoryEntry.COLUMN_NAME, editTextName.getText().toString());
+        outState.putString(InventoryEntry.COLUMN_PRICE, editTextPrice.getText().toString());
+        outState.putString(InventoryEntry.COLUMN_QUANTITY, editTextQuantity.getText().toString());
+        outState.putString(InventoryEntry.COLUMN_SUPPLIER_NAME, editTextSupplierName.getText().toString());
+        outState.putString(InventoryEntry.COLUMN_SUPPLIER_PHONE, editTextSupplierPhone.getText().toString());
+        outState.putString(InventoryEntry.COLUMN_SUPPLIER_EMAIL, editTextSupplierEmail.getText().toString());
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         Log.v(LOG_TAG, " -> onRestoreInstanceState");
-        if( savedInstanceState.containsKey("image") ) {
-            byteArrayImage = savedInstanceState.getByteArray("image");
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_IMAGE) ) {
+            byteArrayImage = savedInstanceState.getByteArray(InventoryEntry.COLUMN_IMAGE);
             Bitmap bitmap = InventoryDbHelper.getImage(byteArrayImage);
             imageView.setBackgroundResource(0);
             imageView.setImageBitmap(bitmap);
         }
+
+        if( savedInstanceState.containsKey("itemHasChanged") )
+            itemHasChanged = savedInstanceState.getBoolean("itemHasChanged");
+
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_NAME) )
+            editTextName.setText(savedInstanceState.getString(InventoryEntry.COLUMN_NAME));
+
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_PRICE) )
+            editTextPrice.setText(savedInstanceState.getString(InventoryEntry.COLUMN_PRICE));
+
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_QUANTITY) )
+            editTextQuantity.setText(savedInstanceState.getString(InventoryEntry.COLUMN_QUANTITY));
+
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_SUPPLIER_NAME) )
+            editTextSupplierName.setText(savedInstanceState.getString(InventoryEntry.COLUMN_SUPPLIER_NAME));
+
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_SUPPLIER_PHONE) )
+            editTextSupplierPhone.setText(savedInstanceState.getString(InventoryEntry.COLUMN_SUPPLIER_PHONE));
+
+        if( savedInstanceState.containsKey(InventoryEntry.COLUMN_SUPPLIER_EMAIL) )
+            editTextSupplierEmail.setText(savedInstanceState.getString(InventoryEntry.COLUMN_SUPPLIER_EMAIL));
     }
 
     @Override

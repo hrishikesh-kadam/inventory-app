@@ -3,4 +3,4 @@
 A final project required for Android Basics Nanodegree graduation which lets a grocery store owner to organize the grocery inventory.
 
 ![Screenshot](https://raw.githubusercontent.com/hrishikesh-kadam/inventory-app/master/screenshots/Screenshot_inventory_App.jpg)
-<img src="https://raw.githubusercontent.com/hrishikesh-kadam/inventory-app/master/screenshots/Screenshot_inventory_App.jpg" width="720" height="1280">
+<img src="https://raw.githubusercontent.com/hrishikesh-kadam/inventory-app/master/screenshots/Screenshot_inventory_App.jpg" width="360" height="740">
